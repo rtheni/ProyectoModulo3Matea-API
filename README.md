@@ -2,7 +2,7 @@
 Documentación del backend del proyecto final del modulo 3
 
 ## Introducción
-> Esta API se encargará de procesar y manejar una base de datos con usuarios y canciones en formato JSON.
+Esta API se encargará de procesar y manejar una base de datos con usuarios y canciones en formato JSON.
 
 ## Estructura y formato de datos
 
@@ -10,7 +10,7 @@ Documentación del backend del proyecto final del modulo 3
 ## Funcionalidades
 >
 > Usuarios
->
+>>
 >> Listar Users: Con el metodo GET mostrara el listado completo de users.
 >>
 >> Agregar User: Con el metodo POST pasandole sus datos desde el BODY siguiendo el formato especifico para Usuario.
@@ -25,7 +25,7 @@ Documentación del backend del proyecto final del modulo 3
 >
 >
 > Canciones
->
+>>
 >> Agregar song: Con el metodo POST pasandole sus datos desde el BODY siguiendo el formato especifico para song.
 >>
 >> Modificar song: Con el metodo POST y especificando el nombre de la song en la url modificara la song pasandole sus nuevos datos desde el BODY siguiendo el formato especifico para song.
