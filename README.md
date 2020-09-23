@@ -6,6 +6,13 @@ Esta API se encargará de procesar y manejar una base de datos con usuarios y ca
 
 ## Estructura y formato de datos
 
+Usuarios: los users deberan tener el siguiente formato en JSON
+
+{"name": String, "songFavs": [{ObjectID}]}
+
+Canciones: las songs deberan tener el siguiente formato en JSON
+{"name": String, "album": String, "duration": String, "artist": String }
+
 
 ## Funcionalidades
 >
