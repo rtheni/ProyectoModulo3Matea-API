@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const database = require('../database');
+const { ObjectID } = require('bson');
 
 const {Schema} = mongoose;
 
@@ -10,7 +11,7 @@ const userSchema = new Schema (
     "lastname": String,
     "email": String,
     "age": String,
-    "favSongs": {}
+    "favSongs": [ObjectID]
 }, {collection: 'userList'}
 )
 
