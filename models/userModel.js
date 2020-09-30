@@ -11,11 +11,11 @@ const userSchema = new Schema (
     "lastname": String,
     "email": String,
     "age": String,
-    "favSongs": [ObjectID]
+    "favSongs": [{type: ObjectID, ref:"Song"}]
 }, {collection: 'userList'}
 )
 
-let Users = mongoose.model('userList', userSchema);
+let Users = mongoose.model('Users', userSchema);
 
 module.exports = {
     Users

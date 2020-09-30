@@ -1,4 +1,6 @@
 const userCollection = require('../models/userModel');
+const songCollection = require('../models/songModel');
+const { Mongoose } = require('mongoose');
 
 const listAllUsers = async (req, res) => {
     const userList = await userCollection.Users.find()
@@ -25,6 +27,19 @@ const addUser = async (req, res) => {
     } else {
         res.status(400).send("El formato del Usuario es incorrecto.")
     }
+};
+
+const addFavSongToUser = async (req, res) => {
+    const userName = req.params.user;
+    const songName = req.params.song;
+    const song = await songCollection.Songs.findOne({name: songName})
+    console.log("song", song)
+    await userCollection.Users.findOneAndUpdate({name : userName}, 
+        {    
+        favSongs : song.id
+        },
+    )
+    console.log("paso por favuser")
 };
 
 const modifyUser = async (req, res) => {
@@ -65,5 +80,6 @@ module.exports = {
     listAllUsers,
     addUser,
     modifyUser,
-    deleteUser
+    deleteUser,
+    addFavSongToUser
 };

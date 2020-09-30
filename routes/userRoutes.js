@@ -7,5 +7,6 @@ router.get("/users/", userController.listAllUsers)
 router.post("/users/", userController.addUser)
 router.put("/users/:user", userController.modifyUser)
 router.delete("/users/:user", userController.deleteUser)
+router.put("/users/addfavsong/:user&:song", userController.addFavSongToUser)
 
 module.exports = router;

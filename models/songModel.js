@@ -13,7 +13,7 @@ const songSchema = new Schema (
 }, {collection: 'songList'}
 )
 
-let Songs = mongoose.model('songList', songSchema);
+let Songs = mongoose.model('Songs', songSchema);
 
 module.exports = {
     Songs
