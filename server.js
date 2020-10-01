@@ -16,7 +16,9 @@ app.put("/users/:user", userRoutes);
 
 app.delete("/users/:user", userRoutes);
 
-app.put("/users/addfavsong/:user&:song", userRoutes);
+app.put("/users/favsong/add/:user&:song", userRoutes);
+
+app.delete("/users/favsong/delete/:user&:song", userRoutes);
 
 
 app.get("/songs/", songRoutes);

@@ -32,15 +32,48 @@ const addUser = async (req, res) => {
 const addFavSongToUser = async (req, res) => {
     const userName = req.params.user;
     const songName = req.params.song;
-    const song = await songCollection.Songs.findOne({name: songName})
-    console.log("song", song)
-    await userCollection.Users.findOneAndUpdate({name : userName}, 
-        {    
-        favSongs : song.id
-        },
-    )
-    console.log("paso por favuser")
+    const song = await songCollection.Songs.findOne({name: songName});
+    const user = await userCollection.Users.findOne({name: userName});
+    console.log("song", song);
+    console.log("user", user);
+    if(song == null){
+        res.status(400).send("La canción " + songName + " no existe en esta base de datos.")
+    }
+    else if(user == null){
+        res.status(400).send("El usuario " + userName + " no existe en esta base de datos.")
+    }
+    else{
+        await userCollection.Users.findOneAndUpdate({name : userName}, 
+            { $addToSet:{
+                favSongs : song.id
+            }}
+        )
+        res.send("La canción " + songName +  " ha sido agregada a la lista del usuario " + userName)
+    }
 };
+
+const deleteFavSongOfUser = async (req, res) => {
+    const userName = req.params.user;
+    const songName = req.params.song;
+    const song = await songCollection.Songs.findOne({name: songName});
+    const user = await userCollection.Users.findOne({name: userName});
+    console.log("song", song);
+    console.log("user", user);
+    if(song == null){
+        res.status(400).send("La canción " + songName + " no existe en esta base de datos.")
+    }
+    else if(user == null){
+        res.status(400).send("El usuario " + userName + " no existe en esta base de datos.")
+    }
+    else{
+        await userCollection.Users.findOneAndUpdate({name : userName}, 
+            { $pull:{
+                favSongs : song.id
+            }}
+        )
+        res.send("La canción " + songName +  " ha sido eliminada de la lista del usuario " + userName)
+    }
+}
 
 const modifyUser = async (req, res) => {
     const user = req.body;
@@ -81,5 +114,6 @@ module.exports = {
     addUser,
     modifyUser,
     deleteUser,
-    addFavSongToUser
+    addFavSongToUser,
+    deleteFavSongOfUser
 };
