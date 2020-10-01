@@ -3,7 +3,7 @@ const songCollection = require('../models/songModel');
 const { Mongoose } = require('mongoose');
 
 const listAllUsers = async (req, res) => {
-    const userList = await userCollection.Users.find()
+    const userList = await userCollection.Users.find().populate('favSongs')
     if (userList.length >= 1){
         res.send(userList)
     }
