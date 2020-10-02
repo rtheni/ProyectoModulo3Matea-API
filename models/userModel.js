@@ -13,7 +13,7 @@ const userSchema = new Schema (
     "lastname": String,
     "email": String,
     "age": String,
-    "favSongs": [{type: ObjectID, ref:"Songs"}]
+    "favSongs": [{_id: ObjectID, ref:"Songs"}]
 }, {collection: 'userList'}
 )
 
