@@ -59,7 +59,7 @@ const modifySong = async (req, res) => {
             res.json(req.body)
         }
         else(
-            res.status(400).send("No existe una canción con ese nombre en esta base de datos.")
+            res.status(400).send("No existe una canción con el nombre " + name + " en esta base de datos.")
         )
     } else {
         res.status(400).send("El formato de la canción es incorrecto.");
@@ -72,7 +72,7 @@ const deleteSong = async (req, res) => {
     if (await Songs.deleteOne(query)) {
         res.send("Canción eliminada.");
     } else {
-        res.status(400).send("No se puede encontrar una cancion con ese nombre.");
+        res.status(400).send("No se puede encontrar una cancion con el nombre " + name + ".");
     }
 };
 

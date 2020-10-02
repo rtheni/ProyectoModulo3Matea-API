@@ -111,10 +111,10 @@ const modifyUser = async (req, res) => {
             res.json(req.body)
         }
         else(
-            res.status(400).send("No existe un Usuario con ese nombre en esta base de datos.")
+            res.status(400).send("No existe un Usuario con el nombre " + name + " en esta base de datos.")
         )
     } else {
-        res.status(400).send("El formato del Usuario es incorrecto.");
+        res.status(400).send("El formato del Usuario ingresado es incorrecto.");
     }
 };
 
@@ -122,9 +122,9 @@ const deleteUser = async (req, res) => {
     const name = req.params.user;
     var query ={name : name}
     if (await Users.deleteOne(query)) {
-        res.send("Usuario eliminado.");
+        res.send("Usuario " + name + " eliminado.");
     } else {
-        res.status(400).send("No se puede encontrar un Usuario a eliminar con ese nombre.");
+        res.status(400).send("No se puede encontrar un Usuario a eliminar con el nombre " + name);
     }
 };
 
