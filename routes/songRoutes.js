@@ -4,8 +4,8 @@ var express = require('express');
 var router = express.Router();
 
 router.get("/songs/", songController.listAllSongs)
-router.post("/songs/", songController.addSong)
-router.put("/songs/:song", songController.modifySong)
-router.delete("/songs/:song", songController.deleteSong)
+router.post("/songs/add", songController.addSong)
+router.put("/songs/modify/:song", songController.modifySong)
+router.delete("/songs/delete/:song", songController.deleteSong)
 
 module.exports = router;

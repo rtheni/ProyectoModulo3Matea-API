@@ -6,11 +6,11 @@ var router = express.Router();
 
 router.get("/users/", userController.listAllUsers)
 
-router.post("/users/", userController.addUser)
+router.post("/users/add", userController.addUser)
 
-router.put("/users/:user", userController.modifyUser)
+router.put("/users/modify/:user", userController.modifyUser)
 
-router.delete("/users/:user", userController.deleteUser)
+router.delete("/users/delete/:user", userController.deleteUser)
 
 
 router.put("/users/favsong/add/:user&:song", userController.addFavSongToUser)
