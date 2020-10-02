@@ -1,0 +1,25 @@
+{
+  "name": "proyectomodulo3matea-api",
+  "version": "1.0.0",
+  "description": "Documentación del backend del proyecto final del modulo 3",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtheni/ProyectoModulo3Matea-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rtheni/ProyectoModulo3Matea-API/issues"
+  },
+  "homepage": "https://github.com/rtheni/ProyectoModulo3Matea-API#readme"
+}
