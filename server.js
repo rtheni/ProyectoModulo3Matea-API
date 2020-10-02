@@ -30,6 +30,6 @@ app.put("/songs/:song", songRoutes);
 app.delete("/songs/:song", songRoutes);
 
 app.listen(port, () => {
-    console.log(`API Mateify initialized at http://localhost:${port}`);
+    console.log(`API Mateify initialized at ${port}`);
     }   
 );
