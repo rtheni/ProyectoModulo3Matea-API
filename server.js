@@ -1,11 +1,12 @@
 const express = require("express");
+var cors = require('cors')
 const app = express();
 const port = process.env.PORT;
 
 const userRoutes = require("./routes/userRoutes");
 const songRoutes = require("./routes/songRoutes");
 
-app.use(express.json());
+app.use(cors());
 
 
 app.get("/users/", userRoutes);
